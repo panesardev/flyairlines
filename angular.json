@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "iota-airlines": {
+    "flyairlines": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -22,7 +22,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/iota-airlines",
+            "outputPath": "dist/flyairlines",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "iota-airlines:build:production"
+              "buildTarget": "flyairlines:build:production"
             },
             "development": {
-              "buildTarget": "iota-airlines:build:development"
+              "buildTarget": "flyairlines:build:development"
             }
           },
           "defaultConfiguration": "development"
