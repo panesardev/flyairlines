@@ -9,8 +9,13 @@ export const routes: Routes = [
     title: TitleResolver,
   },
   {
+    path: 'bundles',
+    loadComponent: () => import('./pages/bundles/bundles.component'),
+    title: TitleResolver,
+  },
+  {
     path: '**',
-    pathMatch: 'full',
-    redirectTo: '/',
+    loadComponent: () => import('./pages/not-found/not-found.component'),
+    title: TitleResolver,
   }
 ];

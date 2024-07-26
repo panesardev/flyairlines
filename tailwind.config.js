@@ -6,12 +6,54 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary": "#395886",
-        "secondary": "#eaf0fb",
-        "accent": "#638ECB",
-        "base": "#F0F3FA",
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        'iota': {
+           'primary' : '#43669d',
+           'primary-focus' : '#567cb8',
+           'primary-content' : '#ffffff',
+
+           'secondary' : '#d9741c',
+           'secondary-focus' : '#ff9d47',
+           'secondary-content' : '#ffffff',
+
+           'accent' : '#eeaf3a',
+           'accent-focus' : '#e09915',
+           'accent-content' : '#ffffff',
+
+           'neutral' : '#261230',
+           'neutral-focus' : '#200f29',
+           'neutral-content' : '#ffffff',
+
+           'base-100' : '#f0f6ff',
+           'base-200' : '#ffffff',
+           'base-300' : '#ffffff',
+           'base-content' : '#261230',
+
+           'info' : '#1c92f2',
+           'success' : '#09c38b',
+           'warning' : '#ff9900',
+           'error' : '#ff5724',
+
+          '--rounded-box': '1rem',          
+          '--rounded-btn': '0.5rem',        
+          '--rounded-badge': '1.9rem',      
+
+          '--animation-btn': '.25s',       
+          '--animation-input': '.2s',       
+
+          '--btn-text-case': 'uppercase',   
+          '--navbar-padding': '.5rem',      
+          '--border-btn': '1px',            
+        },
+      },
+    ],
+  },
+  plugins: [
+    require('daisyui'),
+  ],
 }
