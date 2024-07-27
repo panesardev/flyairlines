@@ -14,6 +14,11 @@ export const routes: Routes = [
     title: TitleResolver,
   },
   {
+    path: 'register',
+    loadComponent: () => import('./pages/register/register.component'),
+    title: TitleResolver,
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found.component'),
     title: TitleResolver,

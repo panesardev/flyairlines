@@ -1,6 +1,10 @@
+import { Booking } from "../bookings/booking.interface";
+
 export interface User {
-  id: number;
+  id?: number;
   email: string;
+  password?: string;
   displayName: string;
-  createdAt: Date | string;
+  bookings: Booking[];
+  created: Date;
 }

@@ -1,13 +1,13 @@
-import { CreateAccountRequest, LoginRequest } from "./auth.interface";
+import { CreateAccountRequestBody, LoginRequestBody } from "./auth.interface";
 
 export class Login {
   static readonly type = '[AUTH] Login';
-  constructor(public body: LoginRequest) {}
+  constructor(public body: LoginRequestBody) {}
 }
 
 export class CreateAccount {
   static readonly type = '[AUTH] CreateAccount';
-  constructor(public body: CreateAccountRequest) {}
+  constructor(public body: CreateAccountRequestBody) {}
 }
 
 export class Logout {

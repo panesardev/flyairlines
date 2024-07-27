@@ -2,8 +2,8 @@
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
     <!-- navbar -->
-    <nav class="bg-base-300 flex justify-between items-center gap-6 p-6">
-      <a routerLink="/" class="text-primary text-2xl font-heading font-bold">{{ brand }}</a>
+    <nav class="bg-base-300 flex lg:grid lg:grid-cols-3 justify-between items-center gap-6 p-6">
+      <a routerLink="/" class="text-primary text-2xl lg:text-3xl font-heading font-bold">{{ brand }}</a>
       <div class="lg:hidden">
         <label for="my-drawer-3" aria-label="open sidebar" class="">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -13,11 +13,20 @@
         <a class="hover:underline hover:text-primary" routerLink="/bundles">Bundles</a>
         <a class="hover:underline hover:text-primary" routerLink="/destinations">Destinations</a>
         <a class="hover:underline hover:text-primary" routerLink="/popular-flights">Popular flights</a>
-        <a class="hover:underline hover:text-primary" routerLink="/deals">Deals & Offers</a>
-        <a class="hover:underline hover:text-primary" routerLink="/support">Support</a>
+        <a class="hover:underline hover:text-primary" routerLink="/discounts">Discounts</a>
       </div>
-      <div class="hidden lg:flex">
+      <div class="hidden lg:flex justify-end gap-6">
         <button class="btn btn-primary px-8">Book new Flight</button>
+        @if (authState().isAuthenticated) {
+          <button class="btn btn-primary btn-circle" routerLink="/profile">
+            <svg class="w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+          </button>
+        }
+        @else {
+          <button class="btn btn-primary btn-circle" (click)="openLogin()">
+            <svg class="w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+          </button>
+        }
       </div>
     </nav>
     <!-- page content -->
@@ -26,15 +35,26 @@
   <div class="drawer-side">
     <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
     <div class="bg-base-200 w-72 min-h-full p-6">
-      <div class="flex justify-end items-center mb-8">
-        <label for="my-drawer-3" aria-label="close sidebar" class="bg-base-100 text-primary rounded-lg px-4 py-1">✕</label>
+      <div class="flex justify-end items-center gap-6 mb-8">
+        @if (authState().isAuthenticated) {
+          <button class="btn btn-primary btn-circle" routerLink="/profile">
+            <svg class="w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+          </button>
+        }
+        @else {
+          <button class="btn btn-primary btn-circle" (click)="openLogin()">
+            <svg class="w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+          </button>
+        }
+        <label for="my-drawer-3" aria-label="close sidebar" class="btn btn-primary btn-circle">
+          <svg class="w-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.021 512.021" xml:space="preserve"><g><path d="M301.258,256.01L502.645,54.645c12.501-12.501,12.501-32.769,0-45.269c-12.501-12.501-32.769-12.501-45.269,0l0,0   L256.01,210.762L54.645,9.376c-12.501-12.501-32.769-12.501-45.269,0s-12.501,32.769,0,45.269L210.762,256.01L9.376,457.376   c-12.501,12.501-12.501,32.769,0,45.269s32.769,12.501,45.269,0L256.01,301.258l201.365,201.387   c12.501,12.501,32.769,12.501,45.269,0c12.501-12.501,12.501-32.769,0-45.269L301.258,256.01z"/></g></svg>
+        </label>
       </div>
       <div class="text-lg flex flex-col gap-2 mb-8">
         <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/bundles">Bundles</a>
         <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/destinations">Destinations</a>
         <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/popular-flights">Popular flights</a>
-        <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/deals">Deals & Offers</a>
-        <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/support">Support</a>
+        <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/discounts">Discounts</a>
       </div>
       <button class="btn btn-primary w-full px-8">Book new Flight</button>
     </div>

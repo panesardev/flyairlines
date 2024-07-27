@@ -7,19 +7,13 @@ export interface AuthStateType {
   token: string;
 }
 
-export interface LoginRequest {
+export interface LoginRequestBody {
   email: string;
   password: string;
 }
 
-export interface CreateAccountRequest {
+export interface CreateAccountRequestBody {
   user: Partial<User>;
-}
-
-export interface AuthResponse {
-  token: string | null;
-  errored: boolean;  
-  message: string;
 }
 
 export interface ExtendedJwtPayload extends JWTPayload {

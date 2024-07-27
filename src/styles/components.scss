@@ -2,4 +2,15 @@
   .btn {
     font-weight: normal;
   }
+
+  fieldset {
+    @apply grid gap-2;
+    label {
+      @apply capitalize;
+    }
+    input, textarea {
+      @apply bg-slate-100 rounded px-4 py-3 placeholder:text-slate-400/50 outline-none;
+    }
+  }
+  
 }

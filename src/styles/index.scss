@@ -5,6 +5,11 @@
 @import './utilities.scss';
 @import './components.scss';
 
+html, html::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 section {
   min-height: 25rem;
 }

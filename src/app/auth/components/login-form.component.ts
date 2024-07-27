@@ -1,6 +1,6 @@
 import { Component, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { LoginRequest } from '../auth.interface';
+import { LoginRequestBody } from '../auth.interface';
 
 @Component({
   selector: 'app-login-form',
@@ -18,14 +18,14 @@ import { LoginRequest } from '../auth.interface';
         <label>Enter password</label>
         <input type="password" name="password" formControlName="password" placeholder="your password">
       </fieldset>
-      <div class="grid">
-        <button [disabled]="form.invalid" type="submit">Login</button>
+      <div class="grid py-4">
+        <button class="btn btn-primary disabled:bg-primary/10 disabled:text-primary" [disabled]="form.invalid" type="submit">Login</button>
       </div>
     </form>
   `,
 })
 export class LoginFormComponent {
-  onSubmit = output<LoginRequest>();
+  onSubmit = output<LoginRequestBody>();
 
   form = new FormGroup({
     email: new FormControl('', Validators.required),

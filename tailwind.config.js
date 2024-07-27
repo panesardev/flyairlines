@@ -12,13 +12,13 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        'iota': {
+        'flyairlines': {
            'primary' : '#43669d',
            'primary-focus' : '#567cb8',
            'primary-content' : '#ffffff',
 
-           'secondary' : '#d9741c',
-           'secondary-focus' : '#ff9d47',
+           'secondary' : '#f97316',
+           'secondary-focus' : '#fb923c',
            'secondary-content' : '#ffffff',
 
            'accent' : '#eeaf3a',
