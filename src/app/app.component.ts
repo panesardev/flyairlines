@@ -15,7 +15,7 @@ import { RenderModalComponent } from './layout/modals/render-modal.component';
   ],
   template: `
     <app-navbar>
-      <main class="p-6">
+      <main class="px-6 py-8">
         <router-outlet />
       </main>
     </app-navbar>

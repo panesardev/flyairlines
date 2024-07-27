@@ -1,0 +1,17 @@
+<section class="max-w-3xl mx-auto">
+  <h1 class="heading mb-8">Destinations</h1>
+
+  <div class="mb-6">
+    <input type="text" [formControl]="searchControl" class="bg-base-200 custom-shadow rounded-full w-full outline-none px-6 py-3" placeholder="Search cities across Canada">
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+    @for (destination of destinations(); track destination.code) {
+      <app-destination-card [destination]="destination"/>
+    }
+  </div>
+
+  @if (!destinations().length) {
+    <p class="text-center text-xl py-10">No results found!</p>
+  }
+</section>

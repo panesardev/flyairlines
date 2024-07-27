@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
+import { select } from '@ngxs/store';
+import { AuthStateToken } from '../../../../auth/auth.state';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [
+    JsonPipe,
+  ],
   templateUrl: './profile.component.html',
-  styles: ``
 })
-export class ProfileComponent {
+export default class ProfileComponent {
+
+  authState = select(AuthStateToken);
 
 }

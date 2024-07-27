@@ -13,7 +13,10 @@ export interface LoginRequestBody {
 }
 
 export interface CreateAccountRequestBody {
-  user: Partial<User>;
+  displayName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
 }
 
 export interface ExtendedJwtPayload extends JWTPayload {

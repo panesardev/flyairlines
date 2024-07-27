@@ -14,6 +14,16 @@ export const routes: Routes = [
     title: TitleResolver,
   },
   {
+    path: 'destinations',
+    loadChildren: () => import('./domains/destinations/destination.routes'),
+    title: TitleResolver,
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./domains/users/user.routes'),
+    title: TitleResolver,
+  },
+  {
     path: 'register',
     loadComponent: () => import('./pages/register/register.component'),
     title: TitleResolver,
