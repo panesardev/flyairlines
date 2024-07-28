@@ -2,7 +2,7 @@
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
     <!-- navbar -->
-    <nav class="bg-base-300 flex lg:grid lg:grid-cols-3 justify-between items-center gap-6 p-6">
+    <nav class="bg-base-300 flex lg:grid lg:grid-cols-3 justify-between items-center custom-shadow gap-6 p-6">
       <a routerLink="/" class="text-primary text-3xl md:text-4xl font-heading font-bold">{{ brand }}</a>
       <div class="lg:hidden">
         <label for="my-drawer-3" aria-label="open sidebar" class="">
@@ -10,13 +10,13 @@
         </label>
       </div>
       <div class="hidden lg:flex justify-center items-center gap-6">
-        <a class="hover:underline hover:text-primary" routerLink="/bundles">Bundles</a>
-        <a class="hover:underline hover:text-primary" routerLink="/destinations">Destinations</a>
-        <a class="hover:underline hover:text-primary" routerLink="/popular-flights">Popular flights</a>
-        <a class="hover:underline hover:text-primary" routerLink="/discounts">Discounts</a>
+        <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/bundles">Bundles</a>
+        <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/destinations">Destinations</a>
+        <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/popular-flights">Popular flights</a>
+        <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/discounts">Discounts</a>
       </div>
       <div class="hidden lg:flex justify-end gap-6">
-        <button class="btn btn-primary px-8">Book new Flight</button>
+        <button class="btn btn-primary rounded-full px-8">Book new Flight</button>
         @if (authState().isAuthenticated) {
           <button class="btn btn-primary btn-circle" routerLink="/users/profile">
             <svg class="w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>

@@ -1,14 +1,12 @@
 import { User } from "../users/user.interface";
 import { Passenger } from "../passengers/passenger.interface";
+import { Flight } from "../flights/flight.interface";
 
 export interface Booking {
   id?: number;
   user: User;
   passengers: Passenger[];
-  fromDestinationId: number;
-  toDestinationId: number;
-  aircraftId: number;
-  time: Date;
+  flight: Flight;
   created: Date;
   updated: Date;
 }

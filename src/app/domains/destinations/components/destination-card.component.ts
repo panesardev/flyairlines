@@ -6,8 +6,8 @@ import { Destination } from '../destination.interface';
   standalone: true,
   imports: [],
   template: `
-    <div class="bg-base-200 custom-shadow rounded-lg p-8">
-      <h1 class="text-primary text-2xl font-bold mb-3">{{ destination().name }}</h1>
+    <div class="bg-base-200 custom-shadow rounded-2xl p-4 md:p-6">
+      <h1 class="text-primary text-xl font-bold mb-3">{{ destination().name }}</h1>
       <p class="mb-6">{{ destination().code }}</p>
       <button class="btn btn-secondary w-full">Select</button>
     </div>

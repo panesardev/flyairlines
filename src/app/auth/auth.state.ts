@@ -26,7 +26,6 @@ export class AuthState implements NgxsOnInit {
 
   ngxsOnInit(ctx: StateContext<AuthStateType>) {
     const token = this.authService.getToken();
-    
     if (token) {
       ctx.dispatch(new FindUser(token));
     }

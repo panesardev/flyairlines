@@ -5,7 +5,7 @@ import { provideStore } from '@ngxs/store';
 import { routes } from './app.routes';
 import { AuthState } from './auth/auth.state';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { AppState } from './state/app.state';
+import { AppState } from './app.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [

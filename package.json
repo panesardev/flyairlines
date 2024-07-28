@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "ng serve --host 0.0.0.0",
     "build": "ng build",
-    "commit": "git add . && git commit -m refactor",
+    "git": "git add . && git commit -m refactor",
     "push": "git push origin master"
   },
   "private": true,
