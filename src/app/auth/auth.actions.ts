@@ -13,8 +13,3 @@ export class CreateAccount {
 export class Logout {
   static readonly type = Logout.name;
 }
-
-export class FindUser {
-  static readonly type = FindUser.name;
-  constructor(public token: string) {}
-}

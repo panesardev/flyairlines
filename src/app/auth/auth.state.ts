@@ -1,8 +1,9 @@
 import { inject, Injectable } from "@angular/core";
 import { Action, NgxsOnInit, State, StateContext, StateToken } from "@ngxs/store";
 import { catchError, EMPTY, switchMap, tap } from "rxjs";
+import { FindUserById } from "../domains/users/user.actions";
 import { UserService } from "../domains/users/user.service";
-import { CreateAccount, FindUser, Login, Logout } from "./auth.actions";
+import { CreateAccount, Login, Logout } from "./auth.actions";
 import { AuthStateType } from "./auth.interface";
 import { AuthService } from "./auth.service";
 import { decode } from "./auth.utilities";
@@ -27,14 +28,20 @@ export class AuthState implements NgxsOnInit {
   ngxsOnInit(ctx: StateContext<AuthStateType>) {
     const token = this.authService.getToken();
     if (token) {
-      ctx.dispatch(new FindUser(token));
+      ctx.patchState({ isAuthenticated: true, token });
+      const userId = decode(token).userId;
+      ctx.dispatch(new FindUserById(userId));
     }
   }
 
   @Action(Login)
   login(ctx: StateContext<AuthStateType>, action: Login) {
     return this.authService.login(action.body).pipe(
-      switchMap(token => ctx.dispatch(new FindUser(token))),
+      switchMap(token => {
+        ctx.patchState({ isAuthenticated: true, token });
+        const userId = decode(token).userId;
+        return ctx.dispatch(new FindUserById(userId));
+      }),
       catchError(e => {
         alert(e.message);
         ctx.setState(initialState);
@@ -46,7 +53,11 @@ export class AuthState implements NgxsOnInit {
   @Action(CreateAccount)
   createAccount(ctx: StateContext<AuthStateType>, action: CreateAccount) {
     return this.authService.createAccount(action.body).pipe(
-      switchMap(token => ctx.dispatch(new FindUser(token))),
+      switchMap(token => {
+        ctx.patchState({ isAuthenticated: true, token });
+        const userId = decode(token).userId;
+        return ctx.dispatch(new FindUserById(userId));
+      }),
       catchError(e => {
         alert(e.message);
         ctx.setState(initialState);
@@ -61,18 +72,13 @@ export class AuthState implements NgxsOnInit {
     ctx.setState(initialState);
   } 
 
-  @Action(FindUser)
-  findUser(ctx: StateContext<AuthStateType>, action: FindUser) {
-    const userId = decode(action.token).userId;
-    return this.userService.findById(userId).pipe(
-      tap(response => ctx.patchState({ 
-        token: action.token,
-        user: response.payload,
-        isAuthenticated: true,
-      })),
+  @Action(FindUserById)
+  findUser(ctx: StateContext<AuthStateType>, action: FindUserById) {
+    return this.userService.findById(action.id).pipe(
+      tap(user => ctx.patchState({ user })),
       catchError(e => {
-        alert(e.message);
-        ctx.setState(initialState);
+        console.log(FindUserById.name, e.message);
+        ctx.patchState({ user: null });
         return EMPTY;
       }),
     );
