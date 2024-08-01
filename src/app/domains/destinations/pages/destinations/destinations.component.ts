@@ -1,10 +1,9 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { select } from '@ngxs/store';
-import { map } from 'rxjs';
-import { AppStateToken } from '../../../../app.state';
+import { Store } from '@ngxs/store';
 import { DestinationCardComponent } from '../../components/destination-card.component';
+import { DestinationState } from '../../destination.state';
 
 @Component({
   selector: 'app-destinations',
@@ -16,19 +15,20 @@ import { DestinationCardComponent } from '../../components/destination-card.comp
   templateUrl: './destinations.component.html',
 })
 export default class DestinationsComponent {
-  private state = select(AppStateToken);
+  private store = inject(Store);
+
+  _destinations = this.store.selectSignal(DestinationState.destinations);
 
   searchControl = new FormControl('');
 
-  text = toSignal(this.searchControl.valueChanges.pipe(map(text => text.toLowerCase())));
+  text = toSignal(this.searchControl.valueChanges);
 
   destinations = computed(() => {
     if (this.text()) {
-      return this.state().destinations.filter(destination => {
-        return destination.name.toLowerCase().includes(this.text());
+      return this._destinations().filter(destination => {
+        return destination.name.toLowerCase().includes(this.text().toLowerCase());
       });
     }
-    return this.state().destinations;
+    return this._destinations();
   });
-
 }

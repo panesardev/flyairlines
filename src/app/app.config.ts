@@ -3,9 +3,10 @@ import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@
 import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading } from '@angular/router';
 import { provideStore } from '@ngxs/store';
 import { routes } from './app.routes';
-import { AuthState } from './auth/auth.state';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { AppState } from './app.state';
+import { AuthState } from './auth/auth.state';
+import { AirplaneState } from './domains/airplanes/airplane.state';
+import { DestinationState } from './domains/destinations/destination.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,10 @@ export const appConfig: ApplicationConfig = {
       withFetch(), 
       withInterceptors([AuthInterceptor]),
     ),
-    provideStore([AppState, AuthState]),
+    provideStore([
+      AuthState, 
+      AirplaneState,
+      DestinationState,
+    ]),
   ],
 };

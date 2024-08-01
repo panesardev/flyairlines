@@ -7,5 +7,5 @@ export interface Flight {
   fromDestinationCode: string;
   toDestinationCode: string;
   date: Date;
-  aircraftId: number;
+  airplaneId: number;
 }

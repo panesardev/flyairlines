@@ -7,6 +7,10 @@
     font-weight: normal;
   }
 
+  .btn.btn-error {
+    @apply text-red-50
+  }
+
   fieldset {
     @apply grid gap-2;
     label {

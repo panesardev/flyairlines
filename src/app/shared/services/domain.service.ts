@@ -20,6 +20,7 @@ export class DomainService<T> {
   }
 
   findById(id: number): Observable<T> {
+    if (!id) throw Error('domain id required');
     return this.http.get<HttpResponse<T>>(`${API_URL}/${this.domain}/${id}`).pipe(
       switchMap(response => {
         if (response.errored) {
@@ -31,7 +32,8 @@ export class DomainService<T> {
   }
 
   create(payload: T): Observable<T> {
-    return this.http.post<HttpResponse<T>>(`${API_URL}/${this.domain}`, { payload }).pipe(
+    if (!payload) throw Error('domain payload required');
+    return this.http.post<HttpResponse<T>>(`${API_URL}/${this.domain}`, payload).pipe(
       switchMap(response => {
         if (response.errored) {
           return throwError(() => new Error(response.message));
@@ -42,7 +44,10 @@ export class DomainService<T> {
   }
   
   update(payload: T): Observable<T> {
-    return this.http.patch<HttpResponse<T>>(`${API_URL}/${this.domain}`, { payload }).pipe(
+    const id = payload['id'];
+    if (!id) throw Error('domain id required');
+    if (!payload) throw Error('domain payload required');
+    return this.http.patch<HttpResponse<T>>(`${API_URL}/${this.domain}/${id}`, payload).pipe(
       switchMap(response => {
         if (response.errored) {
           return throwError(() => new Error(response.message));
@@ -53,6 +58,7 @@ export class DomainService<T> {
   }
 
   remove(id: number): Observable<boolean> {
+    if (!id) throw Error('domain id required');
     return this.http.delete<HttpResponse<boolean>>(`${API_URL}/${this.domain}/${id}`).pipe(
       switchMap(response => {
         if (response.errored) {

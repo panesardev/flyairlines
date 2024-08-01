@@ -1,0 +1,11 @@
+<section class="max-w-4xl mx-auto">
+  <h1 class="heading mb-8">Airplanes</h1>
+  
+
+  <app-airplane-list 
+    [airplanes]="airplanes()" 
+    (onCreate)="create()"
+    (onUpdate)="update($event)"  
+    (onRemove)="remove($event)"  
+  />
+</section>

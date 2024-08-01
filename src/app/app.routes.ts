@@ -9,6 +9,11 @@ export const routes: Routes = [
     title: TitleResolver,
   },
   {
+    path: 'airplanes',
+    loadChildren: () => import('./domains/airplanes/airplane.routes'),
+    title: TitleResolver,
+  },
+  {
     path: 'bundles',
     loadComponent: () => import('./pages/bundles/bundles.component'),
     title: TitleResolver,
