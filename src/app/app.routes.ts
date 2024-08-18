@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { IndexComponent } from './pages/index/index.component';
 import { TitleResolver } from './shared/resolvers/title.resolver';
+import { AdminGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   {
@@ -12,10 +13,16 @@ export const routes: Routes = [
     path: 'airplanes',
     loadChildren: () => import('./domains/airplanes/airplane.routes'),
     title: TitleResolver,
+    canActivate: [AdminGuard],
   },
   {
     path: 'bundles',
     loadComponent: () => import('./pages/bundles/bundles.component'),
+    title: TitleResolver,
+  },
+  {
+    path: 'bookings',
+    loadChildren: () => import('./domains/bookings/booking.routes'),
     title: TitleResolver,
   },
   {

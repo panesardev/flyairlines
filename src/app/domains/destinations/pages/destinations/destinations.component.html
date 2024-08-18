@@ -1,4 +1,11 @@
 <section class="max-w-4xl mx-auto">
+  <div class="breadcrumbs">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/destinations">Destinations</a></li>
+    </ul>
+  </div>
+
   <h1 class="heading mb-8">Destinations</h1>
 
   <div class="mb-6">
@@ -11,7 +18,7 @@
 
   <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
     @for (destination of destinations(); track destination.code) {
-      <app-destination-card [destination]="destination"/>
+      <app-destination-card [destination]="destination" (onSelect)="select($event)"/>
     }
   </div>
 

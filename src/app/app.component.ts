@@ -15,16 +15,12 @@ import { RenderModalComponent } from './layout/modals/render-modal.component';
   ],
   template: `
     <app-navbar>
-      <main class="px-6 py-8">
+      <main class="px-6 pt-4 pb-20">
         <router-outlet />
       </main>
     </app-navbar>
-    @defer {
-      <app-footer />
-      <app-render-modal />
-    }
+    <app-footer />
+    <app-render-modal />
   `,
 })
-export class AppComponent {
-
-}
+export class AppComponent {}

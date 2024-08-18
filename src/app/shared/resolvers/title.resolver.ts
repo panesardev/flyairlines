@@ -13,5 +13,7 @@ export const TitleResolver: ResolveFn<string> = (route: ActivatedRouteSnapshot) 
     title = 'Page Not Found';
   }
 
+  title = title.replaceAll('-', ' ');
+
   return `${title} - ${BRAND}`;
 }

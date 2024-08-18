@@ -2,7 +2,7 @@
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col">
     <!-- navbar -->
-    <nav class="bg-base-300 flex lg:grid lg:grid-cols-3 justify-between items-center custom-shadow gap-6 p-6">
+    <nav class="bg-base-300 flex lg:grid lg:grid-cols-[1fr_600px_1fr] justify-between items-center custom-shadow gap-6 py-4 md:py-6 px-6">
       <div>
         <a routerLink="/" class="text-primary text-3xl md:text-4xl font-heading font-bold">{{ brand }}</a>
       </div>
@@ -16,10 +16,9 @@
         <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/destinations">Destinations</a>
         <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/popular-flights">Popular flights</a>
         <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/discounts">Discounts</a>
-        <a class="hover:underline hover:text-primary" routerLinkActive="text-primary" routerLink="/airplanes">Airplanes</a>
       </div>
       <div class="hidden lg:flex justify-end gap-6">
-        <button class="btn btn-primary rounded-full px-8">Book new Flight</button>
+        <button class="btn btn-primary rounded-full px-8" routerLink="/bookings/new-booking">Book new Flight</button>
         @if (authState().isAuthenticated) {
           <button class="btn btn-primary btn-circle" routerLink="/users/profile">
             <svg class="w-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
@@ -59,7 +58,7 @@
         <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/popular-flights">Popular flights</a>
         <a class="rounded-lg px-6 py-2 hover:text-primary" routerLinkActive="bg-base-100 text-primary" routerLink="/discounts">Discounts</a>
       </div>
-      <button class="btn btn-primary w-full px-8">Book new Flight</button>
+      <button class="btn btn-primary w-full px-8" routerLink="/bookings/new-booking">Book new Flight</button>
     </div>
   </div>  
 </div>

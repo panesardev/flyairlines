@@ -29,7 +29,7 @@ module.exports = {
            'neutral-focus' : '#200f29',
            'neutral-content' : '#ffffff',
 
-           'base-100' : '#f0f6ff',
+           'base-100' : '#edf4ff',
            'base-200' : '#ffffff',
            'base-300' : '#ffffff',
            'base-content' : '#261230',

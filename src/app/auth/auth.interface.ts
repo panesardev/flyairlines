@@ -4,6 +4,7 @@ import { User } from '../domains/users/user.interface';
 export interface AuthStateType {
   user: User;
   isAuthenticated: boolean;
+  isAdmin: boolean;
   token: string;
 }
 

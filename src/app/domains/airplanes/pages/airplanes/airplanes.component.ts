@@ -5,12 +5,16 @@ import { FindAirplaneByModel } from '../../airplane.actions';
 import { Airplane } from '../../airplane.interface';
 import { AirplaneState } from '../../airplane.state';
 import { AirplaneListComponent } from "../../components/airplane-list.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-airplanes',
   standalone: true,
+  imports: [
+    RouterLink,
+    AirplaneListComponent,
+  ],
   templateUrl: './airplanes.component.html',
-  imports: [AirplaneListComponent],
 })
 export default class AirplanesComponent {
   private store = inject(Store);

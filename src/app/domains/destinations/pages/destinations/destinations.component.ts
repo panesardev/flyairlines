@@ -4,13 +4,16 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { DestinationCardComponent } from '../../components/destination-card.component';
 import { DestinationState } from '../../destination.state';
+import { Destination } from '../../destination.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-destinations',
   standalone: true,
   imports: [
-    DestinationCardComponent,
     ReactiveFormsModule,
+    RouterLink,
+    DestinationCardComponent,
   ],
   templateUrl: './destinations.component.html',
 })
@@ -31,4 +34,8 @@ export default class DestinationsComponent {
     }
     return this._destinations();
   });
+
+  select(destination: Destination) {
+    // this.store.dispatch(new NewFlightDestinationTo(destination));
+  }
 }

@@ -1669,6 +1669,20 @@
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-18.1.2.tgz#520dce08800cc2d594214611d8d22ecea4aded7f"
   integrity sha512-oIpkr1oeRMO0CVdEaxiLqqZ7E8RgDR8rf3LrM5sVOBX4aXAbzVkOZf9yZejmrXaLxj7SU/Fhkljr49ErlpB20g==
 
+"@ngxs/logger-plugin@^18.1.0":
+  version "18.1.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/logger-plugin/-/logger-plugin-18.1.0.tgz#e606ab6df5685e861d91e22fca4b321ab8aad25d"
+  integrity sha512-/JBOyNpJEj8rutPzkQLTeonsLICZRah0l5UijHDp5NLKdr5IxiU0zj7mY85vFc44XXYPN81AcWAidW1DUMiACQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngxs/router-plugin@^18.1.1":
+  version "18.1.1"
+  resolved "https://registry.yarnpkg.com/@ngxs/router-plugin/-/router-plugin-18.1.1.tgz#c64a838f1c2656170eff681d0b3e482ce2c468c9"
+  integrity sha512-eyeeT7o4T8FqtqsoBE9rv9IDsmNcO3DxhGwNW2WRpcuKJ4H3xGErPg86AeaDuGF8GmuQQRxZcmcNhl/8mzpyFQ==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ngxs/store@^18.0.0":
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-18.0.0.tgz#4266659ff66bd7c845b3b04fb4e62dfd1e4d80f1"
@@ -6510,8 +6524,3 @@ yoctocolors-cjs@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yoctocolors-cjs/-/yoctocolors-cjs-2.1.2.tgz#f4b905a840a37506813a7acaa28febe97767a242"
   integrity sha512-cYVsTjKl8b+FrnidjibDWskAv7UKOfcwaVZdp/it9n1s9fU3IkgDbhdIRKCW4JDsAlECJY0ytoVPT3sK6kideA==
-
-zone.js@~0.14.3:
-  version "0.14.8"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.14.8.tgz#a87ffec976c990604f769c594dbfc8b969443453"
-  integrity sha512-48uh7MnVp4/OQDuCHeFdXw5d8xwPqFTvlHgPJ1LBFb5GaustLSZV+YUH0to5ygNyGpqTsjpbpt141U/j3pCfqQ==

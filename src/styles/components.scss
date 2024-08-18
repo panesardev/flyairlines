@@ -1,10 +1,11 @@
 @layer components {
   .heading {
-    @apply text-primary text-6xl font-bold font-heading;
+    @apply text-primary text-5xl md:text-6xl font-bold font-heading;
   }
 
   .btn {
     font-weight: normal;
+    border: 1px;
   }
 
   .btn.btn-error {
@@ -17,8 +18,15 @@
       @apply capitalize;
     }
     input, textarea {
-      @apply bg-slate-100 rounded px-4 py-3 placeholder:text-slate-400/50 outline-none;
+      @apply bg-base-100 rounded-md px-4 py-3 placeholder:text-slate-400/50 outline-none;
     }
   }
+
+  .drawer-toggle:checked ~ .drawer-side > .drawer-overlay {
+    @apply bg-slate-950/60;
+  }
   
+  .breadcrumbs {
+    @apply text-xs pt-0 pb-6;
+  }
 }

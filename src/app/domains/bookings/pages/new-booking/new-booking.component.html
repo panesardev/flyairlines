@@ -1,0 +1,41 @@
+<section class="max-w-5xl mx-auto">
+  <div class="breadcrumbs">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/bookings">Bookings</a></li>
+      <li><a routerLink="/bookings/new-booking">New Booking</a></li>
+    </ul>
+  </div>
+
+  <h1 class="heading mb-6">Start new booking</h1>
+
+  <div class="bg-base-200 rounded-2xl mb-6 p-6 lg:p-10">
+    <app-round-trip-form
+      [isRoundTrip]="newBookingState().isRoundTrip" 
+      (setRoundTrip)="setRoundTrip($event)"
+    />
+
+    <app-destination-form
+      [destinations]="destinations()"
+      [departureDestination]="newBookingState().departureDestination"
+      (departureDestinationChange)="setDepartureDestination($event)" 
+      [arrivalDestination]="newBookingState().arrivalDestination"
+      (arrivalDestinationChange)="setArrivalDestination($event)"
+    />
+
+    <app-date-form
+      [isRoundTrip]="newBookingState().isRoundTrip" 
+      [departureDate]="newBookingState().departureDate"
+      (departureDateChange)="setDepartureDate($event)"
+      [arrivalDate]="newBookingState().arrivalDate"
+      (arrivalDateChange)="setArrivalDate($event)"
+    />
+
+    <div class="grid grid-cols-2 max-w-sm gap-6">
+      <button class="btn btn-error" (click)="clearBooking()">Clear booking</button>
+      <button class="btn btn-primary">Continue</button>
+    </div>
+  </div>
+
+</section>
+ 
