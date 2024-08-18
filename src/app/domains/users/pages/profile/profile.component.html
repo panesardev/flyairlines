@@ -9,7 +9,7 @@
 
     <h1 class="heading mb-6">Hello, {{ user().displayName }}</h1>
 
-    <div class="bg-base-200 rounded-2xl mb-6 p-6 lg:p-10">
+    <div class="bg-base-200 rounded-2xl mb-10 p-6 lg:p-10">
       <div class="lg:float-right flex items-center gap-6 mb-6">
         @if (isAdmin()) {
           <button class="btn bg-base-100 text-primary hover:bg-base-100 px-8">
@@ -42,6 +42,18 @@
 
       @if (isAdmin()) {
         <button class="btn btn-primary px-8" routerLink="/airplanes">View airplanes</button>
+      }
+    </div>
+
+    <h1 class="heading mb-6">Your Bookings</h1>
+
+    <div class="bg-base-200 rounded-2xl mb-10 p-6 lg:p-10">
+      @if (user().bookings) {
+
+      }
+      @else {
+        <p class="mb-6">You do not have any bookings yet!</p>
+        <button class="btn btn-primary px-8" routerLink="/bookings/new-booking">Book new flight</button>
       }
     </div>
   }
