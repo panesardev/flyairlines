@@ -1,5 +1,4 @@
 import { inject, Injectable } from "@angular/core";
-import { Navigate } from "@ngxs/router-plugin";
 import { Action, NgxsOnInit, State, StateContext, StateToken } from "@ngxs/store";
 import { catchError, EMPTY, switchMap, tap } from "rxjs";
 import { FindUserById } from "../domains/users/user.actions";
@@ -43,10 +42,7 @@ export class AuthState implements NgxsOnInit {
       switchMap(token => {
         ctx.patchState({ isAuthenticated: true, token });
         const userId = decode(token).userId;
-        return ctx.dispatch([
-          new FindUserById(userId),
-          new Navigate(['/users/profile']),
-        ]);
+        return ctx.dispatch(new FindUserById(userId));
       }),
       catchError(e => {
         console.log('Login action', e.message);
@@ -62,10 +58,7 @@ export class AuthState implements NgxsOnInit {
       switchMap(token => {
         ctx.patchState({ isAuthenticated: true, token });
         const userId = decode(token).userId;
-        return ctx.dispatch([
-          new FindUserById(userId),
-          new Navigate(['/users/profile']),
-        ]);
+        return ctx.dispatch(new FindUserById(userId));
       }),
       catchError(e => {
         ctx.setState(initialState);
@@ -78,7 +71,6 @@ export class AuthState implements NgxsOnInit {
   logout(ctx: StateContext<AuthStateType>) {
     this.authService.logout();
     ctx.setState(initialState);
-    ctx.dispatch(new Navigate(['/']));
   } 
 
   @Action(FindUserById)

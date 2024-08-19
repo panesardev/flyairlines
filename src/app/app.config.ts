@@ -1,7 +1,7 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading } from '@angular/router';
-import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
+import { withNgxsLoggerPlugin } from '@ngxs/logger-plugin';
 import { provideStore } from '@ngxs/store';
 import { routes } from './app.routes';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -31,7 +31,7 @@ export const appConfig: ApplicationConfig = {
         BookingState,
         NewBookingState,
       ],
-      withNgxsRouterPlugin(),
+      withNgxsLoggerPlugin(),
     ),
   ],
 };
