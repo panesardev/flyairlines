@@ -29,10 +29,11 @@ export class AuthState implements NgxsOnInit {
 
   ngxsOnInit(ctx: StateContext<AuthStateType>) {
     const token = this.authService.getToken();
+    console.log(token);
+    
     if (token) {
       ctx.patchState({ isAuthenticated: true, token });
       const userId = decode(token).userId;
-      console.log(userId);
       ctx.dispatch(new FindUserById(userId));
     }
   }
@@ -49,7 +50,7 @@ export class AuthState implements NgxsOnInit {
         ]);
       }),
       catchError(e => {
-        alert(e.message);
+        console.log(e.message);
         ctx.setState(initialState);
         return EMPTY;
       }),
@@ -68,7 +69,7 @@ export class AuthState implements NgxsOnInit {
         ]);
       }),
       catchError(e => {
-        alert(e.message);
+        console.log(e.message);
         ctx.setState(initialState);
         return EMPTY;
       }),
