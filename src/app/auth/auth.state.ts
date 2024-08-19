@@ -32,6 +32,7 @@ export class AuthState implements NgxsOnInit {
     if (token) {
       ctx.patchState({ isAuthenticated: true, token });
       const userId = decode(token).userId;
+      console.log(userId);
       ctx.dispatch(new FindUserById(userId));
     }
   }
