@@ -50,7 +50,7 @@ export class AuthState implements NgxsOnInit {
         ]);
       }),
       catchError(e => {
-        console.log(e.message);
+        console.log('line 53', e.message);
         ctx.setState(initialState);
         return EMPTY;
       }),
@@ -69,7 +69,7 @@ export class AuthState implements NgxsOnInit {
         ]);
       }),
       catchError(e => {
-        console.log(e.message);
+        console.log('line 72', e.message);
         ctx.setState(initialState);
         return EMPTY;
       }),
