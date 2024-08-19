@@ -32,6 +32,8 @@ export class AuthState implements NgxsOnInit {
     console.log(token);
     
     if (token) {
+      console.log('line 35');
+      
       ctx.patchState({ isAuthenticated: true, token });
       const userId = decode(token).userId;
       ctx.dispatch(new FindUserById(userId));
@@ -50,7 +52,7 @@ export class AuthState implements NgxsOnInit {
         ]);
       }),
       catchError(e => {
-        console.log('line 53', e.message);
+        console.log('line 55', e.message);
         ctx.setState(initialState);
         return EMPTY;
       }),
@@ -69,7 +71,7 @@ export class AuthState implements NgxsOnInit {
         ]);
       }),
       catchError(e => {
-        console.log('line 72', e.message);
+        console.log('line 74', e.message);
         ctx.setState(initialState);
         return EMPTY;
       }),
